@@ -1,0 +1,63 @@
+#!/bin/bash
+#Jessica J. Hernandez
+#Full Sail University
+#Networks and Server Structures
+#201507-01
+#Cron Assignment
+echo
+echo
+echo "-------------------------------------"
+echo "|     create afterCron directory    |"
+echo "-------------------------------------"
+mkdir afterCron
+echo "command used: mkdir afterCron"
+echo
+echo
+echo "-------------------------------------"
+echo "|             list all              |"
+echo "-------------------------------------"
+ls -l
+echo
+echo "command used: ls -l"
+echo
+echo
+echo "-------------------------------------"
+echo "|     create cronTest.txt file      |"
+echo "-------------------------------------"
+touch cronTest.txt
+echo "command used: touch cronTest.txt"
+echo
+echo
+echo "-------------------------------------"
+echo "|     add text to cronTest.txt      |"
+echo "-------------------------------------"
+echo "This is a brand new text file with a sentence inside" >> cronTest.txt
+echo "command used: echo 'This is a brand new text file with a sentence inside.' >> cronTest.txt”
+echo
+echo
+echo "-------------------------------------"
+echo "|   display cronTest.txt contents   |"
+echo "-------------------------------------"
+cat cronTest.txt
+echo
+echo "command used: cat cronTest.txt"
+echo
+echo
+echo "-------------------------------------"
+echo "|  move file to afterCron directory |"
+echo "-------------------------------------"
+mv cronTest.txt afterCron/cronTest.txt
+echo "command used: mv cronTest.txt afterCron/cronTest.txt"
+echo
+echo
+echo "-------------------------------------"
+echo "|   list all in afterCron directory  |"
+echo "-------------------------------------"
+ls -l afterCron
+echo
+echo "command used: ls -l afterCron"
+echo
+echo
+echo "-------------------------------------"
+echo "|       end of cron.sh file         |"
+echo "-------------------------------------"
