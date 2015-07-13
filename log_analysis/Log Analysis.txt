@@ -1,0 +1,21 @@
+1. What application do the logs come from?
+Modzilla Firefox Browser.
+
+2. What are the dates which are represented by the logs?
+They range from November through December of 2013.
+
+3. How many unique IP addresses appear?
+About 128/130 unique IP addresses, on client side of the error.log files. 
+
+4. What was the largest file export logged? and does it look out of the ordinary?
+secure.log at 1.7MB.
+It seems like the log holds all the failed attempts of ssh authorization for both passwords and usernames.
+
+5. What is the most common error found in the error logs?
+The “File does not exist” error is the more common error found. The second most common error found is “script not found”.
+
+6. Do you see anything which is out of the ordinary?
+The “File does not exist” error keeps occurring in the /var/www/html/ directory where calls to db, sql, database, administrator, mysql, admin, phpmyadmin, etc. continue to be made. Some error lines did catch my attention, which was: File does not exist: /var/www/html/w00tw00t.at.blackhats.romanian.anti-sec:). 
+
+7. Write a short synopsis of what you found.
+It’s obvious a blackhat hacker is attempting to gain access to the database to steal all the records and that’s why they continue making calls to files that have to do with the database or admin in general. They are also attempting to get ssh access by brute forcing and that’s why most of the error lines in the secure.log file have to do with invalid usernames and/or passwords. 
