@@ -1,0 +1,191 @@
+jessica@fs-sandbox:~$ whoami
+jessica
+jessica@fs-sandbox:~$ cd ~
+jessica@fs-sandbox:~$ echo $HOME
+/home/jessica
+jessica@fs-sandbox:~$ groups
+jessica adm cdrom sudo dip plugdev lpadmin sambashare vboxsf
+jessica@fs-sandbox:~$ ls -la
+total 68
+drwxr-xr-x 5 jessica jessica 4096 Jul 15 20:23 .
+drwxr-xr-x 3 root    root    4096 Jul  8 13:56 ..
+-rw-rw-r-- 1 jessica jessica  164 Jul 12 19:31 20150712_report.log
+drwxrwxr-x 2 jessica jessica 4096 Jul 12 16:15 afterCron
+-rw------- 1 jessica jessica 2908 Jul 13 22:14 .bash_history
+-rw-r--r-- 1 jessica jessica  220 Jul  8 13:56 .bash_logout
+-rw-r--r-- 1 jessica jessica 3637 Jul  8 13:56 .bashrc
+drwx------ 2 jessica jessica 4096 Jul  8 14:20 .cache
+-rwxrwxr-x 1 jessica jessica  865 Jul 12 19:30 ch2_challenge.sh
+-rwxrwxr-x 1 jessica jessica  572 Jul 13 11:49 ch4_challenge.sh
+-rwxrwxr-x 1 jessica jessica 1818 Jul 12 16:03 cron
+-rw------- 1 jessica jessica  107 Jul 10 18:44 .mysql_history
+-rw------- 1 jessica jessica  135 Jul 13 21:49 .nano_history
+-rw-r--r-- 1 jessica jessica  675 Jul  8 13:56 .profile
+-rw------- 1 root    root    1024 Jul 10 19:30 .rnd
+-rw-rw-r-- 1 jessica jessica   66 Jul 12 15:35 .selected_editor
+drwxrwxr-x 2 jessica jessica 4096 Jul  8 14:24 .ssh
+jessica@fs-sandbox:~$ touch ownership.txt
+jessica@fs-sandbox:~$ chown jessica:jessica ownership.txt 
+jessica@fs-sandbox:~$ chown :root ownership.txt 
+chown: changing group of ‘ownership.txt’: Operation not permitted
+jessica@fs-sandbox:~$ sudo chown :root ownership.txt 
+[sudo] password for jessica: 
+jessica@fs-sandbox:~$ ls -la
+total 68
+drwxr-xr-x 5 jessica jessica 4096 Jul 15 20:23 .
+drwxr-xr-x 3 root    root    4096 Jul  8 13:56 ..
+-rw-rw-r-- 1 jessica jessica  164 Jul 12 19:31 20150712_report.log
+drwxrwxr-x 2 jessica jessica 4096 Jul 12 16:15 afterCron
+-rw------- 1 jessica jessica 2908 Jul 13 22:14 .bash_history
+-rw-r--r-- 1 jessica jessica  220 Jul  8 13:56 .bash_logout
+-rw-r--r-- 1 jessica jessica 3637 Jul  8 13:56 .bashrc
+drwx------ 2 jessica jessica 4096 Jul  8 14:20 .cache
+-rwxrwxr-x 1 jessica jessica  865 Jul 12 19:30 ch2_challenge.sh
+-rwxrwxr-x 1 jessica jessica  572 Jul 13 11:49 ch4_challenge.sh
+-rwxrwxr-x 1 jessica jessica 1818 Jul 12 16:03 cron
+-rw------- 1 jessica jessica  107 Jul 10 18:44 .mysql_history
+-rw------- 1 jessica jessica  135 Jul 13 21:49 .nano_history
+-rw-rw-r-- 1 jessica root       0 Jul 15 20:23 ownership.txt
+-rw-r--r-- 1 jessica jessica  675 Jul  8 13:56 .profile
+-rw------- 1 root    root    1024 Jul 10 19:30 .rnd
+-rw-rw-r-- 1 jessica jessica   66 Jul 12 15:35 .selected_editor
+drwxrwxr-x 2 jessica jessica 4096 Jul  8 14:24 .ssh
+jessica@fs-sandbox:~$ chown jessica:jessica ownership.txt 
+jessica@fs-sandbox:~$ pwd
+/home/jessica
+jessica@fs-sandbox:~$ mkdir test1
+jessica@fs-sandbox:~$ chmod ugo=rx ownership.txt 
+jessica@fs-sandbox:~$ ls -la
+total 72
+drwxr-xr-x 6 jessica jessica 4096 Jul 15 20:34 .
+drwxr-xr-x 3 root    root    4096 Jul  8 13:56 ..
+-rw-rw-r-- 1 jessica jessica  164 Jul 12 19:31 20150712_report.log
+drwxrwxr-x 2 jessica jessica 4096 Jul 12 16:15 afterCron
+-rw------- 1 jessica jessica 2908 Jul 13 22:14 .bash_history
+-rw-r--r-- 1 jessica jessica  220 Jul  8 13:56 .bash_logout
+-rw-r--r-- 1 jessica jessica 3637 Jul  8 13:56 .bashrc
+drwx------ 2 jessica jessica 4096 Jul  8 14:20 .cache
+-rwxrwxr-x 1 jessica jessica  865 Jul 12 19:30 ch2_challenge.sh
+-rwxrwxr-x 1 jessica jessica  572 Jul 13 11:49 ch4_challenge.sh
+-rwxrwxr-x 1 jessica jessica 1818 Jul 12 16:03 cron
+-rw------- 1 jessica jessica  107 Jul 10 18:44 .mysql_history
+-rw------- 1 jessica jessica  135 Jul 13 21:49 .nano_history
+-r-xr-xr-x 1 jessica jessica    0 Jul 15 20:23 ownership.txt
+-rw-r--r-- 1 jessica jessica  675 Jul  8 13:56 .profile
+-rw------- 1 root    root    1024 Jul 10 19:30 .rnd
+-rw-rw-r-- 1 jessica jessica   66 Jul 12 15:35 .selected_editor
+drwxrwxr-x 2 jessica jessica 4096 Jul  8 14:24 .ssh
+drwxrwxr-x 2 jessica jessica 4096 Jul 15 20:34 test1
+jessica@fs-sandbox:~$ chmod u=rwx,g=rw,o=r ownership.txt 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rwxrw-r-- 1 jessica jessica 0 Jul 15 20:23 ownership.txt
+jessica@fs-sandbox:~$ chmod ugo+x ownership.txt 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rwxrwxr-x 1 jessica jessica 0 Jul 15 20:23 ownership.txt
+jessica@fs-sandbox:~$ chmod a-x ownership.txt 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rw-rw-r-- 1 jessica jessica 0 Jul 15 20:23 ownership.txt
+jessica@fs-sandbox:~$ chmod ugo-r ownership.txt 
+jessica@fs-sandbox:~$ nano ownership.txt 
+jessica@fs-sandbox:~$ chmod ugo=r ownership.txt 
+jessica@fs-sandbox:~$ nano ownership.txt 
+jessica@fs-sandbox:~$ chmod u+w ownership.txt 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rw-r--r-- 1 jessica jessica 0 Jul 15 20:23 ownership.txt
+jessica@fs-sandbox:~$ chmod -R g+w test1
+jessica@fs-sandbox:~$ ls -la test1/
+total 8
+drwxrwxr-x 2 jessica jessica 4096 Jul 15 20:34 .
+drwxr-xr-x 6 jessica jessica 4096 Jul 15 20:34 ..
+jessica@fs-sandbox:~$ ls -la test1
+total 8
+drwxrwxr-x 2 jessica jessica 4096 Jul 15 20:34 .
+drwxr-xr-x 6 jessica jessica 4096 Jul 15 20:34 ..
+jessica@fs-sandbox:~$ chmod 755 ownership.txt 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rwxr-xr-x 1 jessica jessica 0 Jul 15 20:23 ownership.txt
+jessica@fs-sandbox:~$ chmod 777 ownership.txt 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rwxrwxrwx 1 jessica jessica 0 Jul 15 20:23 ownership.txt
+jessica@fs-sandbox:~$ chmod 764 ownership.txt 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rwxrw-r-- 1 jessica jessica 0 Jul 15 20:23 ownership.txt
+jessica@fs-sandbox:~$ chmod 000 ownership.txt 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+---------- 1 jessica jessica 0 Jul 15 20:23 ownership.txt
+jessica@fs-sandbox:~$ echo "hello world" >> ownership.txt 
+-bash: ownership.txt: Permission denied
+jessica@fs-sandbox:~$ chmod 664 ownership.txt 
+jessica@fs-sandbox:~$ echo "hello world" >> ownership.txt 
+jessica@fs-sandbox:~$ cat ownership.txt 
+hello world
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rw-rw-r-- 1 jessica jessica 12 Jul 15 20:42 ownership.txt
+jessica@fs-sandbox:~$ sudo ls -la
+[sudo] password for jessica: 
+total 76
+drwxr-xr-x 6 jessica jessica 4096 Jul 15 20:34 .
+drwxr-xr-x 3 root    root    4096 Jul  8 13:56 ..
+-rw-rw-r-- 1 jessica jessica  164 Jul 12 19:31 20150712_report.log
+drwxrwxr-x 2 jessica jessica 4096 Jul 12 16:15 afterCron
+-rw------- 1 jessica jessica 2908 Jul 13 22:14 .bash_history
+-rw-r--r-- 1 jessica jessica  220 Jul  8 13:56 .bash_logout
+-rw-r--r-- 1 jessica jessica 3637 Jul  8 13:56 .bashrc
+drwx------ 2 jessica jessica 4096 Jul  8 14:20 .cache
+-rwxrwxr-x 1 jessica jessica  865 Jul 12 19:30 ch2_challenge.sh
+-rwxrwxr-x 1 jessica jessica  572 Jul 13 11:49 ch4_challenge.sh
+-rwxrwxr-x 1 jessica jessica 1818 Jul 12 16:03 cron
+-rw------- 1 jessica jessica  107 Jul 10 18:44 .mysql_history
+-rw------- 1 jessica jessica  135 Jul 15 20:38 .nano_history
+-rw-rw-r-- 1 jessica jessica   12 Jul 15 20:42 ownership.txt
+-rw-r--r-- 1 jessica jessica  675 Jul  8 13:56 .profile
+-rw------- 1 root    root    1024 Jul 10 19:30 .rnd
+-rw-rw-r-- 1 jessica jessica   66 Jul 12 15:35 .selected_editor
+drwxrwxr-x 2 jessica jessica 4096 Jul  8 14:24 .ssh
+drwxrwxr-x 2 jessica jessica 4096 Jul 15 20:34 test1
+jessica@fs-sandbox:~$ sudo chown root ownership.txt 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rw-rw-r-- 1 root jessica 12 Jul 15 20:42 ownership.txt
+jessica@fs-sandbox:~$ sudo -k
+jessica@fs-sandbox:~$ sudo chown jessica ownership.txt 
+[sudo] password for jessica: 
+jessica@fs-sandbox:~$ ls -la ownership.txt 
+-rw-rw-r-- 1 jessica jessica 12 Jul 15 20:42 ownership.txt
+jessica@fs-sandbox:~$ sudo whoami
+root
+jessica@fs-sandbox:~$ sudo -u jessica whoami
+jessica
+jessica@fs-sandbox:~$ cat /etc/sudoers
+cat: /etc/sudoers: Permission denied
+jessica@fs-sandbox:~$ sudo cat /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+Defaults	env_reset
+Defaults	mail_badpass
+Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root	ALL=(ALL:ALL) ALL
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo	ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "#include" directives:
+
+#includedir /etc/sudoers.d
+jessica@fs-sandbox:~$ 
