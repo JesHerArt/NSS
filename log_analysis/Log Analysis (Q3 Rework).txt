@@ -1,0 +1,2 @@
+3. How many unique IP addresses appear?
+By using the cat to merge log files together, awk to get the sections of the IP addresses from my concatenated log files, nano to clean up my results of lines that were counted and had no actual IP address, and lastly wc -l to count the lines in my log count files I was able to approximate that there were 1,538 unique IP address within all twelve of the log files. 
